@@ -13,5 +13,5 @@ Shell script feito em bash para coleta de informações da máquina do sistema o
 
 Algumas possíveis referências:
 
--   [40 comandos para coletar informações do sistema](#https://www.linuxdescomplicado.com.br/2015/11/top-40-comandos-coletar-informacoes-sistema.html) (Ubuntu).
--   [Comandos para consultar informações de hardware no linux](#https://telazul.drusian.com.br/pt/artigo/comandos-para-consultar-informacoes-de-hardware-no-linux).
+-   [40 comandos para coletar informações do sistema](https://www.linuxdescomplicado.com.br/2015/11/top-40-comandos-coletar-informacoes-sistema.html) (Ubuntu).
+-   [Comandos para consultar informações de hardware no linux](https://telazul.drusian.com.br/pt/artigo/comandos-para-consultar-informacoes-de-hardware-no-linux).
