@@ -1,12 +1,23 @@
 #!/bin/bash
 
+# authors: Jean Martins & Lucas Paiva
+# describe: Get system informations and channel details
+# version: 0.1
+# license: open
+
 # Para utilizar alguns comandos será necessário a instalação das seguintes ferramentas:
 # Instalar net-tools por esse comando: sudo apt install net-tools
 # Instalar hwinfo por esse comando:    sudo apt install hwinfo
 
+echo "-----> Checking and installing missing dependencies"
+sudo apt install net-tools -y
+sudo apt install hwinfo -y
+
 # Erro que pode ocorrer no Windowns: "/bin/bash^M: bad interpreter: No such file or directory"
 # para resolver, utilizar esse comando no terminal: sed -i -e 's/\r$//' script.sh
 
+echo
+echo "-----> Initializing"
 MEM="$(cat /proc/meminfo | grep "\MemTotal" | cut -d\: -f2-)"
 MEM="$(echo ${MEM})"
 
