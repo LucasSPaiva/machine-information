@@ -31,7 +31,7 @@ fi
 # para resolver, utilizar esse comando no terminal: sed -i -e 's/\r$//' script.sh
 
 echo
-echo "-----> Initializing"
+echo "-----> Initializing\n"
 MEM="$(cat /proc/meminfo | grep "\MemTotal" | cut -d\: -f2-)"
 MEM="$(echo ${MEM})"
 
@@ -54,8 +54,6 @@ DISK="$(echo ${DISK})"
 
 # Coleta do nome do disco
  
-DISK_NAME=$(sudo fdisk -l | grep model)
-DISK_NAME="$(echo ${DISK_NAME})"
 echo -e '\033[32;1m ==== Informações de hardware ==== \033[m'
 
 cat<<EOT
@@ -64,7 +62,6 @@ Hostname       : $(hostname)
 Memoria        : ${MEM}
 Processador    : [ ${NPROC} ] ${PROC}
 Disco(s)       : ${DISK}
-$DISK_NAME
  
 EOT
  
@@ -105,13 +102,13 @@ if [ $IP != $IP ]
  		echo "Endereco IP .......: -----"
  		echo " "
  	else
- 		echo "Interface .........: $i"
- 		echo "Endereco IP .......: $IP"
-		echo "Endereco Fisico ...: $MAC_ADDR"
-		echo "Broadcast .........: $BCAST"
-		echo "Mascara:...........: $MASK" 
-		echo "Rede ..............: $REDE"
-		echo "Gateway ...........: $GW"
+ 		echo "Interface .............: $i"
+ 		echo "Endereco IP ...........: $IP"
+		echo "Endereco de Hardware...: $MAC_ADDR"
+		echo "Broadcast .............: $BCAST"
+		echo "Mascara:...............: $MASK" 
+		echo "Rede ..................: $REDE"
+		echo "Gateway ...............: $GW"
  		echo " "
 fi
 done
@@ -130,4 +127,14 @@ echo
 echo $GPU_DESCRIPTION
 echo $GPU_PRODUCT
 echo $GPU_VENDOR
+echo
+
+echo -e '\n\033[32;1m ==== Informações sobre a BIOS ==== \033[m'
+echo
+BIOS_VENDOR=$(sudo dmidecode -s bios-vendor)
+BIOS_VERSION=$(sudo dmidecode -s bios-version)
+BIOS_RELEASE=$(sudo dmidecode -s bios-release-date)
+echo "Fabricante da BIOS: $BIOS_VENDOR"
+echo "Versão da BIOS: $BIOS_VERSION"
+echo "BIOS criada em $BIOS_RELEASE"
 echo
