@@ -120,13 +120,13 @@ echo
 free -h
 
 echo -e '\n\033[32;1m ==== Informações sobre a GPU ==== \033[m'
-GPU_DESCRIPTION=$(sudo lshw -C display | grep description)
-GPU_PRODUCT=$(sudo lshw -C display | grep 'product: ' )
-GPU_VENDOR=$(sudo lshw -C display | grep 'vendor: ' )
+GPU_DESCRIPTION=$(sudo lshw -C display | grep description | cut -d\: -f2-)
+GPU_PRODUCT=$(sudo lshw -C display | grep 'product: ' | cut -d\: -f2-)
+GPU_VENDOR=$(sudo lshw -C display | grep 'vendor: ' | cut -d\: -f2-)
 echo
-echo $GPU_DESCRIPTION
-echo $GPU_PRODUCT
-echo $GPU_VENDOR
+echo "Descrição: $GPU_DESCRIPTION"
+echo "Nome: $GPU_PRODUCT"
+echo "Fabricante: $GPU_VENDOR"
 echo
 
 echo -e '\n\033[32;1m ==== Informações sobre a BIOS ==== \033[m'
